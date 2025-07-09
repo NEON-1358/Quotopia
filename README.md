@@ -54,4 +54,22 @@ Link available for a future feedback or stats page.
 ---
 
 ## 📂 Project Structure
+Quotopia: 
 
+│
+├── index.html # Main landing page
+├── first.html # Alternate landing variant (animation version)
+├── about-us.html # Team introduction
+├── education.html # Educational quotes
+├── motivation.html # Motivational quotes
+├── relationship.html # Relationship quotes
+├── wisdom.html # Wisdom quotes
+├── feedback.html # Insights/feedback (optional)
+│
+├── dark-mode.css # Theme styling
+├── wave-animation.css # Background wave animation
+├── script.js # Theme toggle logic
+│
+├── logo.png # Default logo
+├── logo-dark.png # Dark mode logo (if added)
+├── [images/] # All static images used
