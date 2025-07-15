@@ -9,31 +9,34 @@
     <link rel="stylesheet" href="dark-mode.css">
     <link rel="stylesheet" href="wave-animation.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        
+        html,
         body {
             margin: 0;
             padding: 0;
             font-family: 'Arial', sans-serif;
             background-color: #ebeef5;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
-            justify-content: center;
         }
 
         .boat-container {
             position: absolute;
             bottom: 80px;
-            /* Adjust to float on the wave */
             left: 0;
             animation: sail 15s linear infinite;
-            z-index: 5;
+            z-index: 4;
         }
+
 
         #boat1 {
             font-size: 20px;
@@ -83,6 +86,16 @@
         }
 
         /* Boat bobs up and down */
+        @keyframes sail {
+            0% {
+                left: -10%;
+            }
+
+            100% {
+                left: 110%;
+            }
+        }
+
         @keyframes bob {
 
             0%,
@@ -112,7 +125,6 @@
             left: 0;
             z-index: 10;
         }
-
         .a1 {
             text-decoration: none;
             color: #133042;
@@ -152,6 +164,8 @@
             text-align: center;
             max-width: 800px;
             padding: 20px;
+            position: relative;
+            z-index: 5;
         }
 
         #typewriter-text {
@@ -191,10 +205,6 @@
             text-align: center;
         }
 
-        #ani-text {
-            font-size: 45px;
-        }
-
         #intro-text {
             font-size: 45px;
             color: #133042;
@@ -218,6 +228,8 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
+            position: relative;
+            z-index: 6;
         }
 
         .btn-explore:hover {
@@ -278,17 +290,19 @@
             height: 500px;
             background: rgba(255, 255, 255, 0.97);
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-direction: column;
             z-index: 100;
             border: 1px solid #ffd700;
             transform: translateX(110%);
-            transition: transform 0.3s cubic-bezier(.4,2,.2,1);
+            transition: transform 0.3s cubic-bezier(.4, 2, .2, 1);
         }
+
         .chat-container.visible {
             transform: translateX(0);
         }
+
         .chat-toggle {
             position: fixed;
             bottom: 20px;
@@ -304,9 +318,10 @@
             align-items: center;
             justify-content: center;
             font-size: 28px;
-            box-shadow: 0 5px 15px rgba(255,215,0,0.3);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
             z-index: 101;
         }
+
         .close-button {
             position: absolute;
             top: 10px;
@@ -317,6 +332,7 @@
             color: #333;
             cursor: pointer;
         }
+
         .chat-header {
             padding: 18px 0 12px 0;
             background: linear-gradient(135deg, #ffd700, #ffed4a);
@@ -327,12 +343,14 @@
             font-weight: bold;
             font-size: 22px;
         }
+
         .chat-messages {
             flex: 1;
             padding: 18px;
             overflow-y: auto;
             background: #fffbe6;
         }
+
         .chat-input {
             padding: 12px;
             display: flex;
@@ -340,6 +358,7 @@
             background: #fffbe6;
             border-radius: 0 0 15px 15px;
         }
+
         .chat-input input {
             flex: 1;
             padding: 10px 14px;
@@ -348,6 +367,7 @@
             outline: none;
             font-size: 16px;
         }
+
         .chat-input button {
             background: #ffd700;
             color: #333;
@@ -359,9 +379,11 @@
             font-weight: bold;
             transition: background 0.2s;
         }
+
         .chat-input button:hover {
             background: #ffed4a;
         }
+
         .bot-message {
             background: #ffe066;
             border-radius: 12px;
@@ -371,6 +393,7 @@
             align-self: flex-start;
             max-width: 80%;
         }
+
         .user-message {
             background: #fff;
             border-radius: 12px;
@@ -380,11 +403,54 @@
             align-self: flex-end;
             max-width: 80%;
         }
-        @media (max-width: 600px) {
+
+        @media (max-width: 768px) {
+            .intro-container {
+                padding: 10px;
+            }
+
+            #intro-text {
+                font-size: 28px;
+            }
+
+            #intro-description {
+                font-size: 16px;
+            }
+
+            #ani-text {
+                font-size: 28px;
+            }
+
+            .wave {
+                height: 6em;
+                background-size: contain;
+            }
+
+            .chat-toggle {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+            }
+
             .chat-container {
-                width: 95vw;
+                width: 90vw;
                 height: 60vh;
-                right: 2vw;
+                right: 5vw;
+                bottom: 90px;
+            }
+
+            .boat-container {
+                bottom: 60px;
+            }
+
+            .btn-explore {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
+            #navbar1 {
+                font-size: 18px;
+                padding: 10px 15px;
             }
         }
     </style>
