@@ -26,14 +26,15 @@ body {
     background: rgb(255 255 255 / 25%);
     border-radius: 1000% 1000% 0 0;
     position: fixed;
-    width: 200.0%;
-    height: 12em;
+    width: 200%;
+    height: 8em;
     animation: wave 10s -3s linear infinite;
     transform: translate3d(0, 0, 0);
     opacity: 0.8;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    right: 0;
+    z-index: 1;
 }
 
 .wave:nth-of-type(2) {
